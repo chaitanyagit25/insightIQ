@@ -1,16 +1,50 @@
-# React + Vite
+# InsightIQ — AI Business Intelligence Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Upload any CSV file and ask questions about your data in plain English. No SQL. No analyst. Just answers.
 
-Currently, two official plugins are available:
+## Live Demo
+🔗 [insightiq.vercel.app](https://your-vercel-url.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- Upload CSV or Excel files
+- AI-powered natural language queries on your data
+- Auto-generated charts and visualizations
+- Real-time business insights
+- Secure backend — API keys never exposed to browser
 
-## React Compiler
+## Tech Stack
+**Frontend:** React, TailwindCSS, Recharts, Axios  
+**Backend:** Python, FastAPI, Pandas, Groq AI  
+**Deployment:** Vercel (frontend) + Render (backend)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run Locally
 
-## Expanding the ESLint configuration
+### Frontend
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+## Environment Variables
+
+### Frontend (.env)
+```
+VITE_GROQ_API_KEY=your_key
+```
+
+### Backend (.env)
+```
+GROQ_API_KEY=your_key
+```
+
+## Built by
+Chaitanya — 2nd year Computer technolgy student @ YCCE Nagpur
