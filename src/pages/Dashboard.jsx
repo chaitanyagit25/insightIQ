@@ -39,31 +39,16 @@ function Dashboard({ fileName, file, onReset }) {
     setLoading(true)
     setAnswer('')
 
-    const dataSample = csvData.slice(0, 20)
-    const prompt = `
-      You are a business data analyst. Here is a sample of the uploaded CSV data:
-      Columns: ${columns.join(', ')}
-      Data: ${JSON.stringify(dataSample)}
-      
-      Answer this question based on the data: ${question}
-      Give a clear, concise business insight. Keep it under 100 words.
-    `
-
     try {
-      const Groq = (await import('groq-sdk')).default
-      const groq = new Groq({ 
-        apiKey: import.meta.env.VITE_GROQ_API_KEY,
-        dangerouslyAllowBrowser: true
-      })
-      const response = await groq.chat.completions.create({
-        model: 'llama-3.3-70b-versatile',
-        messages: [{ role: 'user', content: prompt }],
-        max_tokens: 200
-      })
-      setAnswer(response.choices[0].message.content)
+      const formData = new FormData()
+      formData.append('file', file)
+      formData.append('question', question)
+
+      const response = await axios.post('http://localhost:8000/analyze', formData)
+      setAnswer(response.data.answer)
     } catch (err) {
       console.log('Error:', err)
-      setAnswer('Something went wrong. Check your API key.')
+      setAnswer('Something went wrong.')
     }
 
     setLoading(false)
