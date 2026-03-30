@@ -44,7 +44,7 @@ function Dashboard({ fileName, file, onReset }) {
       formData.append('file', file)
       formData.append('question', question)
 
-      const response = await axios.post('http://localhost:8000/analyze', formData)
+      const response = await axios.post('https://insightiq-backend-4ifh.onrender.com/analyze', formData)
       setAnswer(response.data.answer)
     } catch (err) {
       console.log('Error:', err)
