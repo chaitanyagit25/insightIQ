@@ -3,8 +3,7 @@
 Upload any CSV file and ask questions about your data in plain English. No SQL. No analyst. Just answers.
 
 ## Live Demo
-🔗 [insightiq.vercel.app](https://your-vercel-url.vercel.app)
-
+🔗 🔗 [insightiq.vercel.app](https://insight-iq-jet.vercel.app)
 ## Features
 - Upload CSV or Excel files
 - AI-powered natural language queries on your data
